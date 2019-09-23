@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
+#include <math.h>
 
 int main(void)
 {
@@ -28,22 +29,22 @@ int main(void)
     int sentences = 0;
     for (int i = 0, n = strlen(text); i < n; i++)
     {
-        if (text[i] == '.' || text[i] == '!' || text == '?')
+        if (text[i] == '.' || text[i] == '!')
         sentences++;
     }
     
     float W = 100.0f / words;
     float L = (letters * W);
     float S = (sentences * W);
-    int index = round(0.0588 * L - 0.296 * S -15.8);
+    int index = round(0.0588 * L - 0.296 * S - 15.8);
     
     if (index < 16 && index >= 1)
-    printf("Grade %i", index);
+    printf("Grade %i\n", index);
     
     if (index > 16)
-    printf("Grade 16+");
+    printf("Grade 16+\n");
     
     if(index < 1)
-    printf("Before Grade 1");
+    printf("Before Grade 1\n");
         
 }
