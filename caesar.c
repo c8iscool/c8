@@ -30,7 +30,7 @@ int main(int argc, string argv[])
 
                 if(x > 122)
                 {
-                    x = x - 25; // if shifted character goes outside of z, moves to the beginning of the alphabet by shifting ascii length of alphabet
+                    x = x - 26; // if shifted character goes outside of z, moves to the beginning of the alphabet by shifting ascii length of alphabet
                 }
             plaintext[i] = x;
             }
@@ -40,7 +40,7 @@ int main(int argc, string argv[])
                 x = x + key;
                 if (x > 90) // if shifted character goes past Z, moves back to the beginning of capital letter alphabet
                 {
-                    x = x - 25;
+                    x = x - 26;
                 }
             plaintext[i] = x; // both change the original component of the string to new shifted character
             }
