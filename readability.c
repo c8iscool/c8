@@ -36,7 +36,7 @@ int main(void)
     float W = 100.0f / words;
     float L = (letters * W);
     float S = (sentences * W);
-    int index = round(0.0588 * L - 0.296 * S - 15.8);
+    int index = round((0.0588 * L) - (0.296 * S) - 15.8);
     
     if (index < 16 && index >= 1)
     printf("Grade %i", index);
