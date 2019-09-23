@@ -39,17 +39,17 @@ int main(void)
         
     if (index < 16 && index >= 1)
     {
-        printf("Grade %i", index);
+        printf("Grade %i\n", index);
     }
     
     else if (index >= 16)
     {
-        printf("Grade 16+");
+        printf("Grade 16+\n");
     }
     
     else if(index < 1)
     {
-        printf("Before Grade 1");
+        printf("Before Grade 1\n");
     }
     
     return 0;
