@@ -7,9 +7,9 @@
 
 int main(void)
 {   
-    int letters = 0;
-    int words = 1;
-    int sentences = 0;
+    float letters = 0;
+    float words = 1;
+    float sentences = 0;
     
     string text = get_string("Text: \n");
     
@@ -32,10 +32,6 @@ int main(void)
             sentences++;
         }
     }
-    
-    printf("Letters: %i", letters);
-    printf("Words: %i", words);
-    printf("sentences: %i", sentences);
     
     float L = (letters * 100.0 / words);
     float S = (sentences * 100.0 / words);
