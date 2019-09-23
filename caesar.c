@@ -16,7 +16,7 @@ int main(int argc, string argv[])
 
     int key = atoi(argv[1]);
     //converts the key character number into an integer
-    string plaintext = get_string("plaintext: \n");
+    string plaintext = get_string("plaintext: ");
 
     for (int i = 0, n = strlen(plaintext); i < n; i++)
     {
