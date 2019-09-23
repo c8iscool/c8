@@ -20,7 +20,7 @@ int main(void)
             letters++; // counts number of alphabetic characters in the string text
         }
         
-        if (text[i] == ' ' && isalpha(text[i + 1] != 0))
+        if (text[i] == ' ' && text[i + 1] != ' ')
         {
             words++;
         }
@@ -33,10 +33,15 @@ int main(void)
         }
     }
     
-    float W = 100.0 / words;
-    float L = (letters * W);
-    float S = (sentences * W);
+    printf("Letters: %i", letters);
+    printf("Words: %i", words);
+    printf("sentences: %i", sentences);
+    
+    float L = (letters * 100.0 / words);
+    float S = (sentences * 100.0 / words);
     int index = round((0.0588 * L) - (0.296 * S) - 15.8);
+    
+    printf("index:%i", index);
     
     if (index < 16 && index >= 1)
     {
