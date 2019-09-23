@@ -22,25 +22,27 @@ int main(int argc, string argv[])
     {
         if (isalpha(plaintext[i])) // only applies shift to alphabetic characters
         {
-            char letter = plaintext[i];
-            if (letter >= 'a' && letter <= 'z') // case 1: lowercase letters
-            {
-                letter = letter + key;
+            int x = plaintext[i];
 
-                if(letter > 'z')
-                {
-                    letter = letter - 'z' + 'a' - 1; // if shifted character goes outside of z, moves to the beginning of the alphabet by shifting ascii - (z-a) which is length of alphabet
-                }
-            plaintext[i] = letter;
-            }
-            else if (letter >= 'A' && letter <= 'Z') // case 2: uppercase letters
+            if (x >= 97 && x <= 122) // case 1: lowercase letters
             {
-                letter = letter + key;
-                if (letter > 'Z') // if shifted character goes past Z, moves back to the beginning of capital letter alphabet
+                x = x + key;
+
+                if(x > 122)
                 {
-                    letter = letter - 'Z' + 'A' - 1;
+                    x = x - 25; // if shifted character goes outside of z, moves to the beginning of the alphabet by shifting ascii length of alphabet
                 }
-            plaintext[i] = letter; // both change the original component of the string to new shifted character
+            plaintext[i] = x;
+            }
+
+            else if (x >= 65 && x <= 90) // case 2: uppercase letters
+            {
+                x = x + key;
+                if (x > 90) // if shifted character goes past Z, moves back to the beginning of capital letter alphabet
+                {
+                    x = x - 25;
+                }
+            plaintext[i] = x; // both change the original component of the string to new shifted character
             }
         }
     }
