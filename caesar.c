@@ -28,11 +28,11 @@ int main(int argc, string argv[])
             {
                 x = x + key;
 
-                if(x > 122)
+                if (x > 122)
                 {
                     x = x - 26; // if shifted character goes outside of z, moves to the beginning of the alphabet by shifting ascii length of alphabet
                 }
-            plaintext[i] = x;
+                plaintext[i] = x;
             }
 
             else if (x >= 65 && x <= 90) // case 2: uppercase letters
@@ -42,7 +42,7 @@ int main(int argc, string argv[])
                 {
                     x = x - 26;
                 }
-            plaintext[i] = x; // both change the original component of the string to new shifted character
+                plaintext[i] = x; // both change the original component of the string to new shifted character
             }
         }
     }
