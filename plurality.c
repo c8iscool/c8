@@ -61,6 +61,7 @@ int main(int argc, string argv[])
 
     // Display winner of election
     print_winner();
+    return 0;
 }
 
 // Update vote totals given a new vote
@@ -71,6 +72,8 @@ bool vote(string name)
         if (name == candidates[i].name)
         {
             candidates[i].votes++;
+
+            return true;
         }
     }
     return false;
