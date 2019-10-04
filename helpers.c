@@ -87,14 +87,18 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE blurred[height][width];
+    int avgRed = 0;
+    int avgBlue = 0;
+    int avgGreen = 0;
 
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            int totalRed = 0;
-            int totalBlue = 0;
-            int totalGreen = 0;
+            float totalRed = 0;
+            float totalBlue = 0;
+            float totalGreen = 0;
+
             int pixelnumber = 0;
 
             if (i != 0 && j != 0) // top left corner
@@ -166,9 +170,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             totalGreen += image[i][j].rgbtGreen;
             pixelnumber++;
 
-            blurred[i][j].rgbtRed = round((float)totalRed / pixelnumber);
-            blurred[i][j].rgbtGreen = round((float)totalGreen / pixelnumber);
-            blurred[i][j].rgbtBlue = round((float)totalBlue / pixelnumber);
+            avgRed = round(totalRed / pixelnumber);
+            avgBlue = round(totalBlue / pixelnumber);
+            avgGreen = round(totalGreen / pixelnumber);
+
+            blurred[i][j].rgbtRed = avgRed;
+            blurred[i][j].rgbtGreen = avgBlue;
+            blurred[i][j].rgbtBlue = avgGreen;
 
         }
 
