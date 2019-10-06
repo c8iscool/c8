@@ -175,8 +175,8 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             avgGreen = round(totalGreen / pixelnumber);
 
             blurred[i][j].rgbtRed = avgRed;
-            blurred[i][j].rgbtGreen = avgBlue;
-            blurred[i][j].rgbtBlue = avgGreen;
+            blurred[i][j].rgbtGreen = avgGreen;
+            blurred[i][j].rgbtBlue = avgBlue;
         }
 
     }
