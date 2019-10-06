@@ -159,9 +159,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
             if (j != width - 1) // right edge
             {
-                totalRed += image[i + 1][j].rgbtRed;
-                totalBlue += image[i + 1][j].rgbtBlue;
-                totalGreen += image[i + 1][j].rgbtGreen;
+                totalRed += image[i][j + 1].rgbtRed;
+                totalBlue += image[i][j + 1].rgbtBlue;
+                totalGreen += image[i][j + 1].rgbtGreen;
                 pixelnumber++;
             }
 
@@ -177,10 +177,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             blurred[i][j].rgbtRed = avgRed;
             blurred[i][j].rgbtGreen = avgBlue;
             blurred[i][j].rgbtBlue = avgGreen;
-
         }
 
     }
-    image = blurred;
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j].rgbtRed = blurred[i][j].rgbtRed;
+            image[i][j].rgbtBlue = blurred[i][j].rgbtBlue;
+            image[i][j].rgbtGreen = blurred[i][j].rgbtGreen;
+        }
+    }
     return;
 }
