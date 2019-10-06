@@ -18,9 +18,11 @@ int main(int argc, char *argv[])
 
     while (fread(buffer, 1, 512, input) == 512)
     {
-        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff && (buffer[3] & 0xf0) == 0xe0) // checks if it has the initial 3 characters that characterize a jpeg file
+        if (buffer[0] == 0xff && buffer[1] == 0xd8 && buffer[2] == 0xff
+            && (buffer[3] & 0xf0) == 0xe0) // checks if it has the initial 3 characters that characterize a jpeg file
         {
-            if (image_counter != -1) // if this is a new image found and it's not the first image found, close the image that has been opened before
+            // if this is a new image found and it's not the first image found, close the image that has been opened before
+            if (image_counter != -1)
             {
                 fclose(output);
             }
