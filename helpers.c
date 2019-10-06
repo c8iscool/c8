@@ -9,7 +9,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int avg_value = round((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0);
+            int avg_value = round((image[i][j].rgbtBlue + image[i][j].rgbtGreen + image[i][j].rgbtRed) / 3.0); // finds the average of red, green, and blue
             image[i][j].rgbtBlue = avg_value;
             image[i][j].rgbtRed = avg_value;
             image[i][j].rgbtGreen = avg_value;
@@ -72,7 +72,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
     for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < (width / 2); j++)
+        for (int j = 0; j < (width / 2); j++) // only flips to halfway the width so that it won't continue flipping all the way thru and undo ur work
         {
             RGBTRIPLE tempLeft = image[i][j];
             RGBTRIPLE tempRight = image[i][width - 1 - j];
@@ -181,7 +181,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
     }
 
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height; i++) // assigns original to blurred array
     {
         for (int j = 0; j < width; j++)
         {
