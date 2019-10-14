@@ -8,6 +8,10 @@
 #include <stdlib.h>
 #include "dictionary.h"
 
+int main(void)
+{
+    return true;
+}
 int wordcounter = 0;
 // Represents a node in a hash table
 typedef struct node
