@@ -1,18 +1,12 @@
 // Implements a dictionary's functionality
 
 #include <stdbool.h>
-#include <string.h>
-#include <strings.h>
-#include <ctype.h>
 #include <stdio.h>
+#include <ctype.h>
+#include <strings.h>
 #include <stdlib.h>
 #include "dictionary.h"
 
-int main(void)
-{
-    return 0;
-}
-int wordcounter = 0;
 // Represents a node in a hash table
 typedef struct node
 {
@@ -23,33 +17,34 @@ node;
 
 // Number of buckets in hash table
 const unsigned int N = 26;
+int wordcounter = 0;
 
 // Hash table
 node *table[N];
 
-// Hashes word to a number
-unsigned int hash(const char *word)
-{
-    int x = tolower(word[0]) - 97;
-    return x;
-}
-
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    node* cursor = malloc(sizeof(node));
-    int x = hash(word);
-    cursor = table[x];
+    node *cursor = malloc(sizeof(node));
+    int bucket = hash(word);
+    cursor = table[bucket];
+
     while (cursor != NULL)
     {
         if (strcasecmp(cursor->word, word) == 0)
         {
             return true;
         }
-
         cursor = cursor->next;
     }
     return false;
+}
+
+// Hashes word to a number
+unsigned int hash(const char *word)
+{
+    int x = tolower(word[0]) - 97;
+    return x;
 }
 
 // Loads dictionary into memory, returning true if successful else false
