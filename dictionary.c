@@ -10,7 +10,7 @@
 
 int main(void)
 {
-    return true;
+    return 0;
 }
 int wordcounter = 0;
 // Represents a node in a hash table
