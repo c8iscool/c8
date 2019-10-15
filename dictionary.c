@@ -4,6 +4,7 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <strings.h>
+#include <string.h>
 #include <stdlib.h>
 #include "dictionary.h"
 
@@ -25,9 +26,8 @@ node *table[N];
 // Returns true if word is in dictionary else false
 bool check(const char *word)
 {
-    node *cursor = malloc(sizeof(node));
     int bucket = hash(word);
-    cursor = table[bucket];
+    node *cursor = table[bucket];
 
     while (cursor != NULL)
     {
@@ -58,24 +58,17 @@ bool load(const char *dictionary)
         return false;
     }
 
-    else
+    while ((fscanf(dictpointer, "%s", buffer)) != EOF)
     {
         node *n = malloc(sizeof(node));
-
-        if(n == NULL)
-        {
-            printf("error\n");
-            return false;
-        }
-
-        while ((fscanf(dictpointer, "%s", buffer)) != EOF)
-        {
-            int bucket = hash(n->word);
-            n->next = table[bucket];
-            table[bucket] = n;
-            wordcounter++;
-        }
+        strcpy(n->word, buffer);
+        int bucket = hash(n->word);
+        n->next = table[bucket];
+        table[bucket] = n;
+        wordcounter++;
     }
+
+
     fclose(dictpointer);
     return true;
 }
@@ -91,16 +84,13 @@ bool unload(void)
 {
     for (int i = 0; i < N; i++)
     {
-        node *cursor;
-        cursor = table[i];
-        while (cursor)
+        node *cursor = table[i];
+        while (table[i] != NULL)
         {
-            node* temp = cursor;
-            cursor = cursor->next;
-            free(temp);
-            return true;
+            cursor = table[i];
+            table[i] = cursor->next;
+            free(cursor);
         }
-    table[i] = NULL;
     }
-    return false;
+    return true;
 }
