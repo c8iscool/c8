@@ -52,8 +52,8 @@ bool load(const char *dictionary)
 {
     char buffer[LENGTH + 1];
 
-    FILE* dictpointer = fopen(dictionary, "r");
-    if(dictpointer == NULL)
+    FILE *dictpointer = fopen(dictionary, "r");
+    if (dictpointer == NULL)
     {
         return false;
     }
