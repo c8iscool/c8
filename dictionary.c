@@ -16,7 +16,7 @@ typedef struct node
 node;
 
 // Number of buckets in hash table
-const unsigned int N = 26;
+const unsigned int N = 27;
 int wordcounter = 0;
 
 // Hash table
@@ -53,13 +53,12 @@ bool load(const char *dictionary)
     char buffer[LENGTH + 1];
 
     FILE* dictpointer = fopen(dictionary, "r");
-
     if(dictpointer == NULL)
     {
         return false;
     }
 
-    while(true)
+    else
     {
         node *n = malloc(sizeof(node));
 
@@ -68,6 +67,7 @@ bool load(const char *dictionary)
             printf("error\n");
             return false;
         }
+
         while ((fscanf(dictpointer, "%s", buffer)) != EOF)
         {
             int bucket = hash(n->word);
