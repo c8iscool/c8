@@ -1,0 +1,30 @@
+.title
+{
+    text-align: center;
+    color: CornflowerBlue;
+    font-size: 80px;
+}
+body
+{
+    text-align: center;
+    background-color: lightcyan
+}
+h2
+{
+    color: lightskyblue;
+    text-align: center;
+}
+form
+{
+    text-align: center;
+}
+.subheader
+{
+    color: blue;
+    font-size: 32px;
+}
+#funfact
+{
+    color: lightcyan;
+    font-size: 20px;
+}
