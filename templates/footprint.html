@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<table id="footprints" class="table table-hover">
+  <tr>
+    <th>Day</th>
+    <th>Transportation (miles)</th>
+    <th>Meat Eaten (kg)</th>
+    <th>Total Emissions (kg of CO2)</th>
+  </tr>
+
+  <tbody>
+      {% for i in tot %}
+      <tr>
+            <td>{{rows[i]["date"]}}</td>
+            <td>{{ rows[i]["SUM(milesTraveled)"] }}</td>
+            <td>{{ rows[i]["SUM(meatEaten)"] }}</td>
+            <td>{{ rows[i]["SUM(Total)"] }}</td>
+
+             {% endfor %}
+        </tr>
+  </tbody>
+</table>
+
+</body>
+{% endblock %}

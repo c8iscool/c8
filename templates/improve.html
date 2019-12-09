@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Improvements
+{% endblock %}
+
+{% block main %}
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: grey;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: #555;
+}
+</style>
+</head>
+<body>
+
+<h2>Ways to Improve</h2>
+<p><br>Making small changes in your lifestyle and habits can not only reduce your carbon footprint, but also help you live more sustainbly.
+<br><br> Click below to see some more eco-friendly alternatives.
+</p>
+<br>
+
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <img src="/static/car.jpg" alt="car" style="width:100%">
+      <div class="container">
+        <h2><br>Car Travel</h2>
+        <p class="title">A typical passenger vehicle emits about 4.6 metric tons of carbon dioxide per year.</p>
+        <p>Personal travel accounts for roughly three-quarters of the measured vehicle miles traveled (VMT) on the Nation's roadways.</p>
+         <button class="button" onclick="myFunction()">Alternative:</button><br>
+
+          <div id="myDIV1"  style="display: none">
+            <br>Individuals can save more than $9,738 per year by taking public transportation instead of driving.
+            Moreover, this mode can lead to substantial environmental benefits.
+            If your commute is 20-miles round trip, the switch to public transportation could lower your carbon footprint by 4,800 pounds annually.
+          <br><br>Carpooling is another eco-friendly alternative! On average, sharing a ride with one other person to work and back will reduce greenhouse gas emissions by 3.72 kilograms.
+            If you were to share a ride all year long, together you would reduce greenhouse gas emissions by approximately 893 kilograms.
+          </div><br>
+
+        <script>
+        function myFunction() {
+        var x = document.getElementById("myDIV1");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }}</script>
+
+      </div>
+    </div>
+  </div>
+
+   <div class="column">
+    <div class="card">
+      <img src="/static/beef.jpg" alt="beef" style="width:100%">
+      <div class="container">
+        <h2><br>Meat Consumption</h2>
+        <p class="title">Every day, 76 million Americans eat beef.</p>
+        <p>Producing beef, for example, uses 20 times the land and emits 20 times the emissions as growing beans, per gram of protein, and requires more than 10 times more resources than producing chicken.</p>
+        <button class="button" onclick="myFunction()">Alternative:</button><br>
+
+          <div id="myDIV2"  style="display: none">
+            <br>The total greenhouse gas emissions from making and distributing a kilogram of tofu is between 0.81 and 0.86 kilograms, compared to 13.3 kg for beef!
+          <br><br>Chicken is another substitute for beef, since it also will halve your dietary carbon footprint. And of course, you can also increase your intake of vegetables and other whole foods, which will also benefit your health.
+          </div><br>
+
+          <script>
+        function myFunction() {
+        var x = document.getElementById("myDIV2");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }}</script>
+
+      </div>
+    </div>
+  </div>
+
+   <div class="column">
+    <div class="card">
+      <img src="/static/airplane2.jpg" alt="airplane" style="width:100%">
+      <div class="container">
+        <h2><br>Air Travel</h2>
+        <p class="title">Taking a long-haul flight generates more carbon emissions than the average person in dozens of countries around the world produces in a whole year.</p>
+        <p>Personal travel accounts for roughly three-quarters of the measured vehicle miles traveled (VMT) on the Nation's roadways</p>
+        <p><button href="/air" class="button">Alternative:</p></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+
+{% endblock %}

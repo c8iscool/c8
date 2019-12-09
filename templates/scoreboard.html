@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+<title>Scoreboard</title>
+<table id="footprints" class="table table-hover">
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Total Emissions (kg of CO2)</th>
+  </tr>
+  <tbody>
+      {% for i in tot %}
+      <tr>
+            <td>{{ i + 1 }}</td>
+            <td>{{ names[i]["username"] }}</td>
+            <td>{{ total[i]["Total"] }}</td>
+             {% endfor %}
+        </tr>
+  </tbody>
+</table>
+
+</body>
+{% endblock %}
